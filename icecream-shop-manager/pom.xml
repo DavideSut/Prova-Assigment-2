@@ -40,12 +40,9 @@
         </executions>
       </plugin>
       <plugin>
-        <groupId>org.eluder.coveralls</groupId>
-        <artifactId>coveralls-maven-plugin</artifactId>
-        <version>4.3.0</version>
-        <configuration>
-          <repoToken>dBSqWA1pc15ffivIqdnxTpiU9XKKODEXR</repoToken>
-        </configuration>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.7-SNAPSHOT</version>
       </plugin>
     </plugins>
   </build>
