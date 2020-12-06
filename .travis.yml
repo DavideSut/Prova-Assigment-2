@@ -12,4 +12,4 @@ dist: trusty
   ​directories:
     ​- $HOME/.m2
 ​script:
-  ​- mvn clean install
+  ​- cd icecream-shop-manager  mvn clean install
