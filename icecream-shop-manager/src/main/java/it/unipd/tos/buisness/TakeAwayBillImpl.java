@@ -3,10 +3,6 @@
 ////////////////////////////////////////////////////////////////////
 
 
-////////////////////////////////////////////////////////////////////
-// Nicholas Miazzo 1161392
-////////////////////////////////////////////////////////////////////
-
 package it.unipd.tos.business;
 
 import it.unipd.tos.business.exception.RestaurantBillException;
@@ -28,7 +24,7 @@ public class TakeAwayBillImpl implements TakeAwayBill {
 
         // Controllo limite items ----- Issue 4
         if(itemsOrdered.size() > 30) {
-            throw new RestaurantBillException();
+            throw new RestaurantBillException("To many items");
         }
         //------------------------------------
 
