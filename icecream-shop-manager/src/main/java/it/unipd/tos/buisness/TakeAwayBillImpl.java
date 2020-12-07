@@ -51,7 +51,7 @@ public class TakeAwayBillImpl implements TakeAwayBill {
 
         // Applicazione sconto totale > 50 euro ---- Issue 3
         if(result > 50D) {
-            result -= result * 0.1D;
+            result = result * 0.9D;
         }
 
         // Commissione ---- Issue 5
