@@ -14,4 +14,4 @@ dist: trusty
 ​script:
   ​- cd icecream-shop-manager && mvn clean install
 after_success:
-  - mvn clean test jacoco:report coveralls:report
+  - mvn clean test jacoco:report coveralls:report -DrepoToken=$COVERALLS_REPO_TOKEN
