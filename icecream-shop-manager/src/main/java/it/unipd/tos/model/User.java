@@ -8,9 +8,9 @@ package it.unipd.tos.model;
 public class User {
 
     private String username;
-    private Integer age;
+    private long age;
 
-    public User(String username, Integer age) {
+    public User(String username, long age) {
         if(username == null) {
             throw new IllegalArgumentException("Username cannot be null");
         }
@@ -25,7 +25,7 @@ public class User {
         return username;
     }
 
-    public Integer getAge(){
+    public long getAge(){
         return age;
     }
 
