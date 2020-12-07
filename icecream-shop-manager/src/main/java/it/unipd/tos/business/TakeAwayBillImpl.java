@@ -24,7 +24,7 @@ public class TakeAwayBillImpl implements TakeAwayBill {
 
         // Controllo limite items ----- Issue 4
         if(itemsOrdered.size() > 30) {
-            throw new RestaurantBillException("To many items");
+            throw new RestaurantBillException();
         }
         //------------------------------------
 
