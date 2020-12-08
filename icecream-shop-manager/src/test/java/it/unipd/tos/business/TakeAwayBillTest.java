@@ -59,9 +59,6 @@ public class TakeAwayBillTest {
         user8 = new User("user8",17L);
         user9 = new User("user9",17L);
         user10 = new User("user10",17L);
-        
-
-        int nUser = 0;
 
         takeAwayBill = new TakeAwayBillImpl();
         list = new LinkedList<>();
