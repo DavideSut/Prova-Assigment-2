@@ -10,10 +10,14 @@ import it.unipd.tos.model.MenuItem;
 import it.unipd.tos.model.User;
 
 import java.util.List;
+import java.util.LinkedList;
 
 public class TakeAwayBillImpl implements TakeAwayBill {
-    public double getOrderPrice(List<MenuItem> itemsOrdered, User user)
-            throws RestaurantBillException {
+
+    private LinkedList<User> listUserFree = new LinkedList<>();
+
+    public double getOrderPrice(List<MenuItem> itemsOrdered, User user, 
+    long time) throws RestaurantBillException {
 
         if(itemsOrdered == null) {
             throw new IllegalArgumentException("ItemsOrder is null");
@@ -21,10 +25,13 @@ public class TakeAwayBillImpl implements TakeAwayBill {
         if(itemsOrdered.size() == 0) {
             throw new IllegalArgumentException("ItemsOrder is empty");
         }
+        if(time < 0) {
+            throw new IllegalArgumentException("Time must be >= 0");
+        }
 
         // Controllo limite items ----- Issue 4
         if(itemsOrdered.size() > 30) {
-            throw new RestaurantBillException();
+            throw new RestaurantBillException("To many items");
         }
         //------------------------------------
 
@@ -44,12 +51,12 @@ public class TakeAwayBillImpl implements TakeAwayBill {
             }
         }
 
-        // Calcolo sconto > 5 gelati --- Issue 2
+        // Calcolo sconto 50% se il numero di gelati > 5 gelati --- Issue 2
         if(nGelati > 5) {
             result -= cheapestGelato.getPrice() * 0.5D;
         }
 
-        // Applicazione sconto totale > 50 euro ---- Issue 3
+        // Applicazione sconto 10% se il totale > 50 euro ---- Issue 3
         if(result > 50D) {
             result = result * 0.9D;
         }
@@ -57,6 +64,14 @@ public class TakeAwayBillImpl implements TakeAwayBill {
         // Commissione ---- Issue 5
         if(result < 10D) {
             result += 0.5D;
+        }
+
+        // Ordini in regalo  --- Issue 6
+        if(user.getAge() < 18 && time >= 64800 && time <= 68400){
+            if(!(listUserFree.contains(user)) && listUserFree.size() < 10){
+                listUserFree.add(user);
+                result = 0D;
+            }
         }
 
         return result;

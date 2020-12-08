@@ -10,14 +10,13 @@ public class MenuItem {
     private ItemType itemType;
     private String name;
     private double price;
-    private long time;
+    //private long time;
 
     public enum ItemType {
         GELATO,BUDINO,BEVANDA;
     }
 
-    public MenuItem(ItemType itemType, String name, double price, 
-    long time) { 
+    public MenuItem(ItemType itemType, String name, double price) { 
         // time è espresso in secondi dopo la mezzanotte
 
         if(itemType == null) {
@@ -29,13 +28,13 @@ public class MenuItem {
         if(price <= 0) {
             throw new IllegalArgumentException("Price must be > 0");
         }
-        if(time < 0) {
+        /*if(time < 0) {
             throw new IllegalArgumentException("Time must be >= 0");
-        }
+        }*/
         this.itemType = itemType;
         this.name = name;
         this.price = price;
-        this.time = time;
+        //this.time = time;
     }
 
     public double getPrice() {
@@ -50,8 +49,8 @@ public class MenuItem {
         return itemType;
     }
 
-    public long getTime() {
+    /*public long getTime() {
         return time;
-    }
+    }*/
 
 }

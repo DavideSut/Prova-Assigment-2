@@ -16,33 +16,33 @@ public class MenuItemTest {
 
     @Before
     public void setup() {
-        item = new MenuItem(MenuItem.ItemType.BEVANDA, "Chinotto", 3D, 3);
+        item = new MenuItem(MenuItem.ItemType.BEVANDA, "Chinotto", 3D);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void test_constructorNullItemTypeParam() {
-        new MenuItem(null, "Name", 8D, 0);
+        new MenuItem(null, "Name", 8D);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void test_constructorNullNameParam() {
-        new MenuItem(MenuItem.ItemType.BEVANDA, null, 3D, 0);
+        new MenuItem(MenuItem.ItemType.BEVANDA, null, 3D);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void test_constructorZeroLengthNameParam() {
-        new MenuItem(MenuItem.ItemType.BEVANDA, "", 3D, 0);
+        new MenuItem(MenuItem.ItemType.BEVANDA, "", 3D);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void test_constructorNegativePriceParam() {
-        new MenuItem(MenuItem.ItemType.BEVANDA, "Fanta", -3D, 0);
+        new MenuItem(MenuItem.ItemType.BEVANDA, "Fanta", -3D);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    /*@Test(expected = IllegalArgumentException.class)
     public void test_constructorNegativeTimeParam() {
-        new MenuItem(MenuItem.ItemType.BEVANDA, "Fanta", 3D, -3);
-    }
+        new MenuItem(MenuItem.ItemType.BEVANDA, "Fanta", 3D);
+    }*/
 
     @Test
     public void testNameGetter() {
@@ -59,8 +59,8 @@ public class MenuItemTest {
         assertEquals(MenuItem.ItemType.BEVANDA, item.getItemType());
     }
 
-    @Test
+    /*@Test
     public void testTimeGetter() {
         assertEquals(3, item.getTime());
-    }
+    }*/
 }

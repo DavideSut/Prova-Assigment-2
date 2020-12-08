@@ -9,6 +9,7 @@ public class User {
 
     private String username;
     private long age;
+    //private boolean free = false;
 
     public User(String username, long age) {
         if(username == null) {
@@ -19,6 +20,7 @@ public class User {
         }
         this.username = username;
         this.age = age;
+        //this.free = free;
     }
 
     public String getUsername(){
@@ -29,5 +31,7 @@ public class User {
         return age;
     }
 
-
+    /*public boolean getFree(){
+        return free;
+    }*/
 }
